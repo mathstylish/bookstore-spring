@@ -1,0 +1,16 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://143.198.101.34:1234/Bookstore
+    username: default
+    password: default
+  jpa:
+    hibernate:
+      ddl-auto: none
+    show-sql: true
+    properties:
+      hibernate:
+        format_sql: true
+#    open-in-view: false
+server:
+  error:
+    include-message: always
