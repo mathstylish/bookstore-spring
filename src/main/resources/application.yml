@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://143.198.101.34:1234/Bookstore
+    url: jdbc:postgresql://localhost:1234/Bookstore
     username: default
     password: default
   jpa:
@@ -10,7 +10,7 @@ spring:
     properties:
       hibernate:
         format_sql: true
-#    open-in-view: false
+    open-in-view: false
 server:
   error:
     include-message: always
