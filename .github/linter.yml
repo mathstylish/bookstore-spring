@@ -1,0 +1,32 @@
+name: Lint Code Base
+on:
+  pull_request:
+    branches:
+      - development
+
+jobs:
+  build:
+    name: Lint Code Base
+    runs-on: ubuntu-latest
+    # modify the default permissions granted to the GITHUB_TOKEN
+    permissions:
+      # actions can list the commits
+      contents: read
+      # actions can list the packages
+      packages: read
+      # actions list the commit statuses for a given reference
+      statuses: write
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+        with:
+          # full git history is needed to get a proper
+          # list of changed files within `super-linter`
+          fetch-depth: 0
+      - name: Lint Code Base
+        uses: super-linter/super-linter/slim@v5
+        env:
+          VALIDATE_ALL_CODEBASE: true
+          DEFAULT_BRANCH: development
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
